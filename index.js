@@ -73,6 +73,7 @@ const pool = mysql.createPool({
 });
 
 pool.query('TRUNCATE TABLE topics');
+pool.query('TRUNCATE TABLE comments');
 
 //pool.query('INSERT INTO topics (name) VALUES (?)', [ 'Test topic' ], function (error, results, fields) {
 //  console.log('Pool >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
@@ -97,6 +98,7 @@ pool.query('TRUNCATE TABLE topics');
 //
 //    const q = {
 //      sql: 'SELECT * FROM comments INNER JOIN topics ON comments.topic_id = topics.id',
+//      //sql: 'SELECT * FROM topics INNER JOIN comments ON topics.id = comments.topic_id',
 //      nestTables: true
 //    };
 //
@@ -104,10 +106,11 @@ pool.query('TRUNCATE TABLE topics');
 //      if (error) throw error;
 //      console.log('Selected ==================================');
 //      console.log(results);
-//      console.log(results[0].topics.created_at.getTime());
+//      //console.log(results[0].topics.created_at.getTime());
 //      console.log('Fields ------------------------------------');
 //      console.log(fields);
 //      console.log('');
+//      pool.end();
 //    });
 //  });
 //});
